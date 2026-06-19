@@ -1,0 +1,1 @@
+window.MoanasoftSupportFlow = window.MoanasoftSupportFlow || {};
