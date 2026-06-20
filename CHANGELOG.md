@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0
+
+- Require moanasoft/foundation ^0.4 and align route configuration with Moanasoft global public/admin route conventions.
+
+
 ## [0.2.0] - 2026-06-18
 
 - Default backoffice route prefix changed from /admin/support-flow to /backoffice/support-flow.
