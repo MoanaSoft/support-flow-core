@@ -123,3 +123,8 @@ AdminLTE is optional. The Core package ships both view trees:
 ## Design note
 
 This package is deliberately configuration-first in Community edition. Database-backed workflow editing is a Pro concern.
+
+## Moanasoft route convention
+
+Route-aware Moanasoft packages resolve their route surface in this order: package-specific value, global Moanasoft value, then package default. A host application can configure the whole ecosystem once with `MOANASOFT_PUBLIC_DOMAIN`, `MOANASOFT_PUBLIC_PREFIX`, `MOANASOFT_ADMIN_DOMAIN` and `MOANASOFT_ADMIN_PREFIX`, while still overriding a single package when needed.
+

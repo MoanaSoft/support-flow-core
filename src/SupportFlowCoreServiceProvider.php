@@ -7,6 +7,7 @@ namespace Moanasoft\SupportFlowCore;
 use Illuminate\Support\Facades\Blade;
 use Moanasoft\Foundation\Package\MoanasoftPackageServiceProvider;
 use Moanasoft\SupportFlowCore\Contracts\SupportFlowRepositoryContract;
+use Moanasoft\Foundation\Routing\PackageRouteRegistrar;
 
 final class SupportFlowCoreServiceProvider extends MoanasoftPackageServiceProvider
 {
@@ -27,7 +28,7 @@ final class SupportFlowCoreServiceProvider extends MoanasoftPackageServiceProvid
 
     protected function packageVersion(): string
     {
-        return '0.2.0';
+        return '0.3.0';
     }
 
     protected function packageDescription(): ?string
@@ -71,7 +72,7 @@ final class SupportFlowCoreServiceProvider extends MoanasoftPackageServiceProvid
 
     protected function hasRoutes(): bool
     {
-        return true;
+        return false;
     }
 
     protected function hasAssets(): bool
@@ -87,6 +88,18 @@ final class SupportFlowCoreServiceProvider extends MoanasoftPackageServiceProvid
 
     protected function bootPackage(): void
     {
+        if ((bool) config($this->configKey().'.routes.enabled', true)) {
+            PackageRouteRegistrar::register(
+                (array) config($this->configKey().'.routes.public', []),
+                $this->packageBasePath().'/routes/front.php',
+            );
+
+            PackageRouteRegistrar::register(
+                (array) config($this->configKey().'.routes.admin', []),
+                $this->packageBasePath().'/routes/admin.php',
+            );
+        }
+
         Blade::anonymousComponentPath($this->packageBasePath().'/resources/views/components', 'support-flow');
     }
 

@@ -6,7 +6,29 @@ return [
     'enabled' => env('SUPPORT_FLOW_ENABLED', true),
 
     'routes' => [
-        'enabled' => true,
+        'enabled' => env('SUPPORT_FLOW_ROUTES_ENABLED', true),
+
+        'public' => [
+            'enabled' => env('SUPPORT_FLOW_PUBLIC_ROUTES_ENABLED', env('SUPPORT_FLOW_ROUTES_ENABLED', true)),
+            'domain' => env('SUPPORT_FLOW_PUBLIC_DOMAIN', env('MOANASOFT_PUBLIC_DOMAIN')),
+            'prefix' => env('SUPPORT_FLOW_PUBLIC_PREFIX', env('MOANASOFT_PUBLIC_PREFIX', '')),
+            'path' => env('SUPPORT_FLOW_PUBLIC_PATH', env('SUPPORT_FLOW_ROUTE_PREFIX', 'support-flow')),
+            'name' => env('SUPPORT_FLOW_PUBLIC_ROUTE_NAME', env('SUPPORT_FLOW_ROUTE_NAME', 'moanasoft.support-flow.front.')),
+            'middleware' => config('moanasoft.routes.public.middleware', ['web']),
+            'where' => config('moanasoft.routes.public.where', []),
+        ],
+
+        'admin' => [
+            'enabled' => env('SUPPORT_FLOW_ADMIN_ROUTES_ENABLED', env('SUPPORT_FLOW_ROUTES_ENABLED', true)),
+            'domain' => env('SUPPORT_FLOW_ADMIN_DOMAIN', env('MOANASOFT_ADMIN_DOMAIN')),
+            'prefix' => env('SUPPORT_FLOW_ADMIN_PREFIX', env('MOANASOFT_ADMIN_PREFIX', '')),
+            'path' => env('SUPPORT_FLOW_ADMIN_PATH', env('SUPPORT_FLOW_BACKOFFICE_PREFIX', 'support-flow')),
+            'name' => env('SUPPORT_FLOW_ADMIN_ROUTE_NAME', env('SUPPORT_FLOW_BACKOFFICE_ROUTE_NAME', 'moanasoft.support-flow.backoffice.')),
+            'middleware' => config('moanasoft.routes.admin.middleware', ['web', 'auth']),
+            'where' => config('moanasoft.routes.admin.where', []),
+        ],
+
+        // Legacy aliases kept during migration.
         'prefix' => env('SUPPORT_FLOW_ROUTE_PREFIX', 'support-flow'),
         'name' => env('SUPPORT_FLOW_ROUTE_NAME', 'moanasoft.support-flow.front.'),
         'middleware' => ['web'],
