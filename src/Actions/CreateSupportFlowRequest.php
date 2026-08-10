@@ -13,11 +13,10 @@ final readonly class CreateSupportFlowRequest
     public function __construct(
         private Request $request,
         private AuthFactory $auth,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public function handle(array $data): SupportFlowRequest
     {

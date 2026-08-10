@@ -14,8 +14,7 @@ final readonly class SupportFlowRepository implements SupportFlowRepositoryContr
 {
     public function __construct(
         private ConfigRepository $config,
-    ) {
-    }
+    ) {}
 
     public function instance(string $key): ?SupportFlowInstance
     {

@@ -6,8 +6,8 @@ namespace Moanasoft\SupportFlowCore;
 
 use Illuminate\Support\Facades\Blade;
 use Moanasoft\Foundation\Package\MoanasoftPackageServiceProvider;
-use Moanasoft\SupportFlowCore\Contracts\SupportFlowRepositoryContract;
 use Moanasoft\Foundation\Routing\PackageRouteRegistrar;
+use Moanasoft\SupportFlowCore\Contracts\SupportFlowRepositoryContract;
 
 final class SupportFlowCoreServiceProvider extends MoanasoftPackageServiceProvider
 {
@@ -31,7 +31,7 @@ final class SupportFlowCoreServiceProvider extends MoanasoftPackageServiceProvid
         return '0.3.0';
     }
 
-    protected function packageDescription(): ?string
+    protected function packageDescription(): string
     {
         return 'Embeddable support qualification engine with multi-instance workflows, fallback contact and basic analytics.';
     }

@@ -17,8 +17,7 @@ final class SupportFlowWidgetController extends Controller
     public function __construct(
         private readonly SupportFlowRepositoryContract $repository,
         private readonly RecordSupportFlowEvent $events,
-    ) {
-    }
+    ) {}
 
     public function show(string $instance): JsonResponse
     {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Moanasoft\SupportFlowCore\Http\Controllers\Admin;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
-use Illuminate\View\View;
 use Moanasoft\SupportFlowCore\Models\SupportFlowRequest;
 use Moanasoft\SupportFlowCore\SupportFlowAdminView;
 
