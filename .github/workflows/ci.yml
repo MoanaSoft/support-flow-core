@@ -1,0 +1,26 @@
+name: CI
+
+on:
+    pull_request:
+        branches:
+            - main
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: read
+
+jobs:
+    package:
+        uses: MoanaSoft/github-workflows/.github/workflows/php-package-ci.yml@babd6577c3623514d98ff57fa72482eec32dfb8d
+        with:
+            php-version: "8.4"
+            lint-command: "vendor/bin/pint --test"
+            private-composer-auth: true
+            private-composer-app-id: "4548641"
+            private-composer-owner: MoanaSoft
+            private-composer-repositories: |
+                foundation
+        secrets:
+            PRIVATE_COMPOSER_APP_PRIVATE_KEY: ${{ secrets.PRIVATE_COMPOSER_APP_PRIVATE_KEY }}
