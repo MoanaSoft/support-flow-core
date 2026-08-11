@@ -48,5 +48,10 @@
         "test": "phpunit"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [{
+        "name": "moanasoft-foundation",
+        "type": "vcs",
+        "url": "git@github.com:MoanaSoft/foundation.git"
+    }]
 }

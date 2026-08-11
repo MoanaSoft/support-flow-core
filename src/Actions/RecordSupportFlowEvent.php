@@ -14,12 +14,11 @@ final readonly class RecordSupportFlowEvent
     public function __construct(
         private Request $request,
         private AuthFactory $auth,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $payload
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>  $context
      */
     public function handle(
         string $instance,

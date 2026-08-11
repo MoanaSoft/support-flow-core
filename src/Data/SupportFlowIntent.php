@@ -12,11 +12,10 @@ final readonly class SupportFlowIntent
         public ?string $description,
         public ?string $workflow,
         public string $resolution,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public static function fromArray(string $key, array $data): self
     {

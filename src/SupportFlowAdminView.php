@@ -10,8 +10,7 @@ final readonly class SupportFlowAdminView
 {
     public function __construct(
         private ViewFactory $view,
-    ) {
-    }
+    ) {}
 
     public function resolve(string $view): string
     {

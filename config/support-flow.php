@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+use Moanasoft\SupportFlowCore\Models\SupportFlowEvent;
+use Moanasoft\SupportFlowCore\Models\SupportFlowRequest;
 
 return [
     'enabled' => env('SUPPORT_FLOW_ENABLED', true),
@@ -55,12 +57,12 @@ return [
     ],
 
     'requests' => [
-        'model' => Moanasoft\SupportFlowCore\Models\SupportFlowRequest::class,
+        'model' => SupportFlowRequest::class,
         'table' => 'support_flow_requests',
     ],
 
     'events' => [
-        'model' => Moanasoft\SupportFlowCore\Models\SupportFlowEvent::class,
+        'model' => SupportFlowEvent::class,
         'table' => 'support_flow_events',
     ],
 

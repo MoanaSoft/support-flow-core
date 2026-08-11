@@ -7,8 +7,8 @@ namespace Moanasoft\SupportFlowCore\Data;
 final readonly class SupportFlowInstance
 {
     /**
-     * @param array<int, string> $intents
-     * @param array<string, mixed> $rules
+     * @param  array<int, string>  $intents
+     * @param  array<string, mixed>  $rules
      */
     public function __construct(
         public string $key,
@@ -16,11 +16,10 @@ final readonly class SupportFlowInstance
         public ?string $description,
         public array $intents,
         public array $rules = [],
-    ) {
-    }
+    ) {}
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public static function fromArray(string $key, array $data): self
     {
