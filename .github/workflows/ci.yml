@@ -1,12 +1,11 @@
 name: CI
 
 on:
-    pull_request:
-        branches:
-            - main
-    push:
-        branches:
-            - main
+    workflow_dispatch:
+
+concurrency:
+    group: manual-ci-${{ github.repository }}-${{ github.ref }}
+    cancel-in-progress: true
 
 permissions:
     contents: read
